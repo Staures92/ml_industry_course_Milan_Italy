@@ -1,0 +1,41 @@
+
+# --- Virtual environment ---
+
+ml.venv/
+
+venv/
+
+.venv/
+
+# --- Python bytecode / cache ---
+
+__pycache__/
+
+*.pyc
+
+*.pyo
+
+# --- CatBoost training artifacts (auto-generated every .fit() call) ---
+
+catboost_info/
+
+# --- Jupyter checkpoints ---
+
+.ipynb_checkpoints/
+
+# --- OS cruft ---
+
+.DS_Store
+
+# --- LaTeX build artifacts (if you compile REPORT.tex / HOW_TO_REPRODUCE.tex locally) ---
+
+*.aux
+
+*.log
+
+*.out
+
+*.toc
+
+day2/assignment/data/train_clean.csv
+day2/assignment/data/test_clean.csv
