@@ -1,0 +1,24 @@
+Defect,Affected Loans,Treatment Rule,% of Raw Tape,impact
+Duplicate loan_id,6164,Keep first occurrence and remove subsequent duplicates,1.999857245751439,Rows removed
+Invalid/unrecognised region,0,Set to missing; investigate before modelling,0.0,Rows retained
+Invalid amortization type (XYZ),1202,Remove because EAD cannot be reconstructed,0.38997865175101065,Rows removed
+Missing amortization type,1191,Remove because EAD cannot be reconstructed,0.38640979553698307,Rows removed
+Other unrecognised amortization types,2393,Remove because EAD cannot be reconstructed,0.7763884472879937,Rows removed
+Invalid FICO score,6028,Set FICO to missing and retain loan,1.9557332052870982,Rows retained
+Invalid interest rate,3419,Set interest rate to missing and flag,1.1092653996145636,Rows retained
+Non-positive term,3048,Remove because contractual maturity cannot be determined,0.9888976127596342,Rows removed
+Term above 120 months,2987,Remove because it is outside the documented contractual range,0.9691066828454815,Rows removed
+Non-positive issue amount,5990,Remove because exposure cannot be defined,1.943404429275003,Rows removed
+"Implausible issue amount (> eur12,560 — systematic unit/decimal entry defect, not isolated outliers)",3017,"Flag and cap at €12,560 (winsorize); loan retained",0.9788399270655567,Rows retained
+Missing/unparseable origination date,10472,Remove because loan age and maturity cannot be determined,3.3975511157542293,Rows removed
+Invalid observation end date,0,Remove because observation window is undefined,0.0,Rows removed
+Default date before origination,5733,Set default date to missing and flag as invalid event,1.8600229704563593,Rows retained
+Prepayment date before origination,4199,Set prepayment date to missing and flag as invalid event,1.3623297493365172,Rows retained
+Default after observation end,795,Set event to missing and flag; treat as administratively censored,0.2579309718319912,Rows retained
+Prepayment after observation end,750,Set event to missing and flag; treat as administratively censored,0.24333110550187853,Rows retained
+Both default and prepayment recorded,5782,Keep the first observed termination event,1.875920602682482,Rows retained
+Default before prepayment,2516,Keep default and remove later prepayment,0.8162947485903018,Rows removed
+Prepayment before default,3264,Keep prepayment and remove later default,1.0589769711441754,Rows removed
+Default and prepayment on same date,2,Flag as ambiguous competing event,0.0006488829480050094,Rows retained
+Maturity inconsistencies,5600,Replace with contractual maturity reconstructed from origination date and term,1.8168722544140263,Rows retained
+Loans removed for structurally unusable fields,24191,"Remove records for which loan age, contractual schedule, or EAD cannot be reliably reconstructed",7.8485636975945905,Rows removed

@@ -1,0 +1,7 @@
+Model,Parameter,Estimate
+Weibull,lambda_,207.90086235121902
+Weibull,rho_,1.2353481369240393
+Log-Normal,mu_,5.686784214086667
+Log-Normal,sigma_,1.7353669795411417
+Log-Logistic,alpha_,185.62773296986393
+Log-Logistic,beta_,1.2800011566862377
