@@ -1,5 +1,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*.pyc
+*.pyo
 *.py[codz]
 *$py.class
 
@@ -150,9 +152,11 @@ activemq-data/
 # Environments
 .env
 .envrc
+ml.venv/
+venv/
+.venv/
 .venv
 env/
-venv/
 ENV/
 env.bak/
 venv.bak/
@@ -216,9 +220,9 @@ __marimo__/
 .streamlit/secrets.toml
 # Knowledge base (reference material, not shared)
 knowledge/
-*.gz
 
 # Course internal files (not shared with students)
+day2/files/
 not_shared_*
 **/not_shared_*
 **/*__solution*
@@ -233,3 +237,19 @@ groups.md
 *_ideas.md
 *_spec.md
 day1/agenda_day1.md
+
+# mlflow artifacts
+mlruns/
+mlartifacts/
+mlflow.db
+
+# mlops outputs
+day4/outputs/
+
+
+# --- CatBoost training artifacts (auto-generated every .fit() call) ---
+catboost_info/
+ 
+# --- Jupyter checkpoints ---
+.ipynb_checkpoints/
+day3/outputs/cleaned/loan_tape_clean.csv
