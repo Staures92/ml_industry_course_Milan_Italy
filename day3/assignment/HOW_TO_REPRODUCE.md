@@ -41,7 +41,7 @@ Run the following in exact sequence. Each step's output feeds the next step's
 input; skipping or reordering will produce inconsistent or missing
 intermediate files.
 
-### 1. `cleaning.ipynb` --- Part 1 (data cleaning, EDA, EAD/amortization reconstruction)
+### 1. `cleaning.ipynb`: Part 1 (data cleaning, EDA, EAD/amortization reconstruction)
 
 - Restart the kernel before running (**Kernel → Restart Kernel and Run All
   Cells**). Because `cleaning.py` is imported once at the top of the notebook,
@@ -52,7 +52,7 @@ intermediate files.
   `../outputs/tables/data_quality_log.csv`, and the seven Part 1 figures to
   `../outputs/figures/`.
 
-### 2. `marginals.ipynb` --- Part 2 (survival family comparison, FICO-band segmentation)
+### 2. `marginals.ipynb`: Part 2 (survival family comparison, FICO-band segmentation)
 
 - Reads: `../outputs/cleaned/loan_tape_clean.csv`.
 - Fits Kaplan-Meier, Aalen-Johansen, Weibull, Log-Normal, Log-Logistic on the
@@ -65,7 +65,7 @@ intermediate files.
   selected over region, term, and amortization-type segmentation (Delta AIC ≈
   14,056 vs. pooled).
 
-### 3. `dependence.ipynb` --- Part 3 (copula selection) and Part 4 (diversification)
+### 3. `dependence.ipynb`: Part 3 (copula selection) and Part 4 (diversification)
 
 - Reads: `../outputs/cleaned/loan_tape_clean.csv`.
 - Builds annual default-rate panels by FICO band and by region
@@ -81,7 +81,7 @@ intermediate files.
   `../outputs/figures/`.
 - **Expected result:** average τ ≈ 0.379, ρ ≈ 0.5602, permutation test p ~ 0.403 (One-Factor structure selected, Hierarchical rejected), fitted nu~ 2.74 with 95% CI ~ [2.05, 4.79].
 
-### 4. `simulation_concentration.ipynb` (or `.py`) --- Part 5 (Monte Carlo loss simulation) and Part 6 (concentration & attribution)
+### 4. `simulation_concentration.ipynb` (or `.py`): Part 5 (Monte Carlo loss simulation) and Part 6 (concentration & attribution)
 
 - Reads: `../outputs/cleaned/loan_tape_clean.csv`.
 - Draws a FICO-band-stratified sample of 4,900 loans (`frac = 5000 /
@@ -107,7 +107,7 @@ intermediate files.
   (Student-t) ~ €12.86M; EC(99.9)~ €11.97M; independence understates EC(99.9) by
   ~91.8%; top-10 Component-VaR share ≈0.41%; risk HHI ~0.0003.
 
----
+
 
 ## Known Non-Determinism
 
