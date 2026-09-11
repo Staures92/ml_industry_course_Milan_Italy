@@ -62,7 +62,7 @@ intermediate files.
   `../outputs/tables/marginal_model_parameters.csv`, and six figures to
   `../outputs/figures/`.
 - **Expected result:** Weibull selected on AIC/BIC. FICO-band segmentation
-  selected over region, term, and amortization-type segmentation (ΔAIC ≈
+  selected over region, term, and amortization-type segmentation (Delta AIC ≈
   14,056 vs. pooled).
 
 ### 3. `dependence.ipynb` --- Part 3 (copula selection) and Part 4 (diversification)
@@ -70,18 +70,16 @@ intermediate files.
 - Reads: `../outputs/cleaned/loan_tape_clean.csv`.
 - Builds annual default-rate panels by FICO band and by region
   (`build_fico_default_panel`, `build_regional_default_panel`), computes
-  Kendall τ matrices, average τ, and its bootstrap CI.
-- Builds the finer region × FICO panel (`build_region_fico_default_panel`) and
+  Kendall tau matrices, average tau, and its bootstrap CI.
+- Builds the finer region x FICO panel (`build_region_fico_default_panel`) and
   runs the within-vs-cross segment permutation test (5,000 permutations,
   seed 42).
-- Fits ν by matching the Student-t copula's implied upper-tail dependence to
+- Fits nu by matching the Student-t copula's implied upper-tail dependence to
   the empirical estimate (75th-percentile joint-exceedance method), and
-  bootstraps a 95% CI on ν (500 resamples, years resampled).
+  bootstraps a 95% CI on nu (500 resamples, years resampled).
 - Writes: `fico_dependence_matrix.pdf`, `regional_default_dependence.pdf` to
   `../outputs/figures/`.
-- **Expected result:** average τ ≈ 0.379, ρ ≈ 0.5602, permutation test p ≈
-  0.403 (One-Factor structure selected, Hierarchical rejected), fitted ν ≈
-  2.74 with 95% CI ≈ [2.05, 4.79].
+- **Expected result:** average τ ≈ 0.379, ρ ≈ 0.5602, permutation test p ~ 0.403 (One-Factor structure selected, Hierarchical rejected), fitted nu~ 2.74 with 95% CI ~ [2.05, 4.79].
 
 ### 4. `simulation_concentration.ipynb` (or `.py`) --- Part 5 (Monte Carlo loss simulation) and Part 6 (concentration & attribution)
 
@@ -101,13 +99,13 @@ intermediate files.
   `simulated_ead_matrix()` (calls `outstanding_balance()` from
   `amortization.py`).
 - Computes risk measures (`portfolio_risk_measures`), MC confidence intervals
-  on VaR₉₉.₉ (`bootstrap_var_ci`, 500 resamples), the independence-benchmark
+  on VaR(99.9)(`bootstrap_var_ci`, 500 resamples), the independence-benchmark
   diversification benefit, Component VaR (`component_var`), the Euler
   additivity check, region attribution, and concentration indices (HHI,
   top-10 share, diversification ratio).
-- **Expected result (sample scale, 4,900 loans):** EL ≈ €896,954; VaR₉₉.₉
-  (Student-t) ≈ €12.86M; EC₉₉.₉ ≈ €11.97M; independence understates EC₉₉.₉ by
-  ≈91.8%; top-10 Component-VaR share ≈0.41%; risk HHI ≈ 0.0003.
+- **Expected result (sample scale, 4,900 loans):** EL ≈ €896,954; VaR(99.9)
+  (Student-t) ~ €12.86M; EC(99.9)~ €11.97M; independence understates EC(99.9) by
+  ~91.8%; top-10 Component-VaR share ≈0.41%; risk HHI ~0.0003.
 
 ---
 

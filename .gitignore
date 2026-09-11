@@ -253,3 +253,7 @@ catboost_info/
 # --- Jupyter checkpoints ---
 .ipynb_checkpoints/
 day3/outputs/cleaned/loan_tape_clean.csv
+day2/assignment/data/train_clean.csv
+day2/assignment/data/test_clean.csv
+day3/notebooks/data_cleaning_eda_old.ipynb
+*copy*.ipynb
